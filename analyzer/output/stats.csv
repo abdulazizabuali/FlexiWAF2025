@@ -1,0 +1,9 @@
+metric,value,count
+top_ip,172.18.0.1,10
+hourly_distribution,19,8
+hourly_distribution,21,2
+rejection_type,200,8
+rejection_type,404,2
+honeypot_attempts,total,2
+total_rejections,total,8
+unique_ips,total,1

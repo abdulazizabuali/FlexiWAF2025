@@ -1,0 +1,6 @@
+{
+  "rate": "5r/m",
+  "burst": 10,
+  "challenge_enabled": true,
+  "ban_duration": 300
+}

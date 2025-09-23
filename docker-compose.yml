@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: openresty/openresty:alpine
+    container_name: flexiwaf_nginx
+    ports:
+      - "${NGINX_PORT}:80"
+    volumes:
+      - ./nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro
+      - ./nginx/waf.lua:/usr/local/openresty/lualib/waf.lua:ro
+      - ./nginx/ip_list.json:/usr/local/openresty/nginx/conf/ip_list.json
+      - ./nginx/rate_limit_config.json:/usr/local/openresty/nginx/conf/rate_limit_config.json
+      - ./logs:/var/log/nginx
+    environment:
+      - LOG_RETENTION_DAYS=${LOG_RETENTION_DAYS}
+    restart: unless-stopped
+    networks:
+      - flexiwaf_network
+
+  analyzer:
+    build: ./analyzer
+    container_name: flexiwaf_analyzer
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    restart: unless-stopped
+    depends_on:
+      - nginx
+    networks:
+      - flexiwaf_network
+
+  dashboard:
+    build: ./dashboard
+    container_name: flexiwaf_dashboard
+    ports:
+      - "${DASHBOARD_PORT}:8501"
+    volumes:
+      - ./data:/app/output
+    restart: unless-stopped
+    depends_on:
+      - analyzer
+    networks:
+      - flexiwaf_network
+
+  api:
+    build: ./api
+    container_name: flexiwaf_api
+    ports:
+      - "${API_PORT}:5000"
+    volumes:
+      - ./nginx/ip_list.json:/app/rules/ip_list.json
+      - ./nginx/rate_limit_config.json:/app/rules/rate_limit_config.json
+    restart: unless-stopped
+    networks:
+      - flexiwaf_network
+
+networks:
+  flexiwaf_network:
+    driver: bridge

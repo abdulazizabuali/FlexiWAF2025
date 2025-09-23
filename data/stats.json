@@ -1,0 +1,115 @@
+{
+    "total_requests": 976,
+    "total_rejections": 485,
+    "honeypot_attempts": 4,
+    "unique_ips": 1,
+    "rejection_types": {
+        "403": 9,
+        "500": 1,
+        "404": 4,
+        "error": 412,
+        "429": 59
+    },
+    "top_5_ips": {
+        "172.18.0.1": 485
+    },
+    "hourly_distribution": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 217,
+        "20": 0,
+        "21": 0,
+        "22": 286,
+        "23": 473
+    },
+    "last_10_events": [
+        {
+            "timestamp": "16/Sep/2025:23:47:09 +0000",
+            "ip": "172.18.0.1",
+            "request": "GET /favicon.ico HTTP/1.1",
+            "status": 200,
+            "type": "Request"
+        },
+        {
+            "timestamp": "16/Sep/2025:23:47:09 +0000",
+            "ip": "172.18.0.1",
+            "request": "GET /favicon.ico HTTP/1.1",
+            "status": 0,
+            "type": "ErrorLog"
+        },
+        {
+            "timestamp": "16/Sep/2025:23:47:08 +0000",
+            "ip": "172.18.0.1",
+            "request": "GET /admin HTTP/1.1",
+            "status": 404,
+            "type": "Honeypot"
+        },
+        {
+            "timestamp": "16/Sep/2025:23:47:08 +0000",
+            "ip": "172.18.0.1",
+            "request": "GET /admin HTTP/1.1",
+            "status": 0,
+            "type": "ErrorLog"
+        },
+        {
+            "timestamp": "16/Sep/2025:23:46:57 +0000",
+            "ip": "172.18.0.1",
+            "request": "POST /challenge HTTP/1.1",
+            "status": 302,
+            "type": "Request"
+        },
+        {
+            "timestamp": "16/Sep/2025:23:46:57 +0000",
+            "ip": "172.18.0.1",
+            "request": "GET / HTTP/1.1",
+            "status": 200,
+            "type": "Request"
+        },
+        {
+            "timestamp": "16/Sep/2025:23:46:57 +0000",
+            "ip": "172.18.0.1",
+            "request": "GET /favicon.ico HTTP/1.1",
+            "status": 200,
+            "type": "Request"
+        },
+        {
+            "timestamp": "16/Sep/2025:23:46:57 +0000",
+            "ip": "172.18.0.1",
+            "request": "GET / HTTP/1.1",
+            "status": 0,
+            "type": "ErrorLog"
+        },
+        {
+            "timestamp": "16/Sep/2025:23:46:57 +0000",
+            "ip": "172.18.0.1",
+            "request": "GET /favicon.ico HTTP/1.1",
+            "status": 0,
+            "type": "ErrorLog"
+        },
+        {
+            "timestamp": "16/Sep/2025:23:46:51 +0000",
+            "ip": "172.18.0.1",
+            "request": "GET / HTTP/1.1",
+            "status": 302,
+            "type": "Request"
+        }
+    ],
+    "last_updated": "2025-09-16T23:52:39.873270Z"
+}
